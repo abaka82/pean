@@ -1,0 +1,47 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.study.title"></h1>
+  </div>
+  <div class="pull-right" ng-show="vm.authentication.user.id == vm.study.userId">
+    <a class="btn btn-primary" ui-sref="studys.edit({ studyId: vm.study.id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Last Updated:
+      <span ng-bind="vm.study.LastUpdate | date:'mediumDate'"></span>
+    </em>
+  </small>
+  <div class="row">
+     <div class="col-md-2"><h4>Type</h4></div>
+     <div class="col-md-5">
+        <span ng-bind="vm.study.Type"></span>
+     </div>
+  </div>
+
+  <div class="row">
+     <div class="col-md-2"><h4>Parent Patient</h4></div>
+     <div class="col-md-5">
+        <span ng-bind="vm.study.ParentPatient"></span>
+     </div>
+  </div>
+
+  <div class="row">
+     <div class="col-md-2"><h4>Patient ID</h4></div>
+     <div class="col-md-5">
+        <span ng-bind="vm.study.PatientMainDicomTags.PatientID"></span>
+     </div>
+  </div>
+
+  <div class="row">
+     <div class="col-md-2"><h4>Patient Name</h4></div>
+     <div class="col-md-5">
+        <span ng-bind="vm.study.PatientMainDicomTags.PatientName"></span>
+     </div>
+  </div>
+  <p class="lead" ng-bind="vm.study.content"></p>
+</section>

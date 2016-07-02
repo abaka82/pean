@@ -1,7 +1,3 @@
-#PEAN.JS
-
-PEAN.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for [PostgreSQL](http://www.postgresql.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components.
-
 ## Before You Begin
 Before you begin we recommend you read about the basic building blocks that assemble a PEAN.JS application:
 * PostgreSQL - Go through [PostegreSQL Official Website](http://www.postgresql.org/) and proceed to their [Official Documentation](http://www.postgresql.org/docs/), which should help you understand PostgreSQL better.
@@ -44,26 +40,6 @@ $ npm install -g grunt-cli
 $ npm install gulp -g
 ```
 
-## Downloading PEAN.JS
-There are several ways you can get the PEAN.JS boilerplate:
-
-### Cloning The GitHub Repository
-The recommended way to get PEAN.js is to use git to directly clone the PEAN.JS repository:
-
-```bash
-$ git clone https://github.com/StetSolutions/pean.git peanjs
-```
-
-This will clone the latest version of the PEAN.JS repository to a **peanjs** folder.
-
-### Downloading The Repository Zip File
-Another way to use the PEAN.JS boilerplate is to download a zip copy from the [master branch on GitHub](https://github.com/StetSolutions/pean/archive/master.zip). You can also do this using `wget` command:
-
-```bash
-$ wget https://github.com/StetSolutions/pean/archive/master.zip -O peanjs.zip; unzip peanjs.zip; rm peanjs.zip
-```
-
-Don't forget to rename **pean-master** after your project name.
 
 ## Quick Install
 Once you've downloaded the boilerplate and installed all the prerequisites, you're just a few steps away from starting to develop your PEAN application.
@@ -84,13 +60,15 @@ This command does a few things:
 ## Running Your Application
 The first thing you will need to do is supply your PostgreSQL credentials.
 
-To do this, duplicate 'config/env/local.example.js' and rename the file 'config/env/local-development.js' (as instructed in the example file itself). 
+To do this, change your db name/user/password in the file 'config/env/local-development.js':
 
-If you have not done so already, create a PostgreSQL database (our example uses a database named 'pean_dev'). 
-
-Uncomment 'module.exports' in the 'local-development.js' file you just created and replace the 'db.options' properties with your own PostgreSQL database name, username and password. 
-
-Make sure that 'db.force' is set to 'true' (as in the example). When the Sequelize option 'force' is set to 'true', all tables are dropped and recreated everytime the server is started/restarted. Additionally, any roles defined in your configuration will be added to the 'Roles' table by the application.  
+  db: {
+    options: {
+      database: 'orthanc',
+      password: '',
+      username: 'postgres'
+    }
+  },
 
 Now just run your application using Grunt. 
 
@@ -100,20 +78,10 @@ In the application folder, run this from the command-line:
 $ grunt
 ```
 
-or in 'debugging' mode:
-
-```
-$ grunt debug
-```
-
 Your application should run on port 3000 with the *development* environment configuration, so in your browser just go to [http://localhost:3000](http://localhost:3000)
 
 That's it! Your application should be running. To proceed with your development, check the other sections in this documentation.
 
-If you encounter any problems, try the Troubleshooting section.
-
-* Explore `config/env/development.js` for development environment configuration options.
-* Set 'force' to 'false' if you want to preserve your table data on server restart.  
 
 ### Running in Production mode
 To run your application with *production* environment configuration, execute grunt as follows:
@@ -187,91 +155,4 @@ And to run only the "end to end" tests, run the test:e2e task:
 grunt test:e2e
 ```
 
-## Running your application with Gulp
 
-After the install process, you can easily run your project with:
-
-```bash
-$ gulp
-```
-or
-
-```bash
-$ gulp default
-```
-
-The server is now running on http://localhost:3000 if you are using the default settings. 
-
-### Running Gulp Development Environment
-
-Start the development environment with:
-
-```bash
-$ gulp dev
-```
-
-### Running in Production mode
-To run your application with *production* environment configuration, execute gulp as follows:
-
-```bash
-$ gulp prod
-```
-
-### Testing Your Application with Gulp
-Using the full test suite included with PEAN.JS with the test task:
-
-### Run all tests
-```bash
-$ gulp test
-```
-
-### Run server tests
-```bash
-gulp test:server
-```
-
-### Run client tests
-```bash
-gulp test:client
-```
-
-### Run e2e tests
-```bash
-gulp test:e2e
-```
-
-## Getting Started With PEAN.JS
-You have your application running, but there is a lot of stuff to understand. We recommend you go over the [Official MEAN Documentation](http://meanjs.org/docs.html).
-In the docs we'll try to explain both general concepts of MEAN components and give you some guidelines to help you improve your development process. We tried covering as many aspects as possible, and will keep it updated by your request. You can also help us develop and improve the documentation by checking out the *gh-pages* branch of this repository.
-
-## Community
-* Use the [Official Website](http://peanjs.org) to learn about changes and the roadmap.
-
-## Contributing
-We welcome pull requests from the community! Just be sure to read the [contributing](https://github.com/StetSolutions/pean/blob/master/CONTRIBUTING.md) doc to get started.
-
-## Credits
-Inspired by the great work of [Madhusudhan Srinivasa](https://github.com/madhums/)
-The MEAN name was coined by [Valeri Karpov](http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and)
-
-## License
-(The MIT License)
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

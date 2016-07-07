@@ -7,8 +7,10 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/font-awesome/css/font-awesome.css',
+        'public/lib/metisMenu/dist/metisMenu.min.css'
       ],
       js: [
+        'public/lib/jquery/dist/jquery.min.js',
         'public/lib/angular/angular.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
@@ -18,7 +20,9 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-        
+        'public/lib/metisMenu/dist/metisMenu.min.js',
+        'public/lib/pace/pace.min.js',
+        'public/scripts.js',
         'public/lib/angular-capitalize-filter/capitalize.js',
         'public/lib/lodash/lodash.js',
         'public/lib/moment/moment.js',

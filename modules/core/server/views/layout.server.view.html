@@ -36,12 +36,30 @@
 </head>
 
 <body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <section class="content">
-    <section class="container">
+
+  <!-- Wrapper-->
+  <div id="wrapper">
+
+    <!-- Navigation -->
+    <div data-ng-include="'/modules/core/client/views/navigation.client.view.html'"></div>
+
+    <!-- Page wraper -->
+    <div id="page-wrapper" class="gray-bg">
+
+      <!-- Page wrapper -->
+      <div ng-include="'/modules/core/client/views/header.client.view.html'"></div>
+
+      <!-- Main view  -->
       {% block content %}{% endblock %}
-    </section>
-  </section>
+
+      <!-- Footer -->
+      <div ng-include="'/modules/core/client/views/footer.client.view.html'"></div>
+
+    </div>
+    <!-- End page wrapper-->
+
+  </div>
+  <!-- End wrapper-->
 
   <!--Embedding The User Object-->
   <script type="text/javascript">

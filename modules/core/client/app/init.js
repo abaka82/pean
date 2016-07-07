@@ -16,6 +16,7 @@ angular.module(ApplicationConfiguration.applicationModuleName).run(function ($ro
 
   // Check authentication before changing state
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+    console.log('Authentication.user: ' + JSON.stringify(Authentication.user));
     if (toState.data && toState.data.roles && toState.data.roles.length > 0) {
       var allowed = false;
       toState.data.roles.forEach(function (role) {

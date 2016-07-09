@@ -173,27 +173,20 @@
                                 </div>
                             </td>
                         </tr>
-                         <tr ng-if="study.expanded" ng-repeat-end="">
-                            <td colspan="4" style="text-align: center;font-weight: bold">Study ID</td>
-                            <td colspan="4" style="text-align: center;font-weight: bold">Series</td>
-                         </tr>
                          <tr ng-if="study.expanded" ng-repeat-end="" >
-                            <td colspan="4">
-                             <div style="word-wrap:break-word;">  
-                                <img src="{{product.imageUrl}}" alt="{{product.Iitle}}" class="img-responsive" style="margin-left:auto;margin-right:auto;">
-                             </div>
-                              {{study.ID}}
-                            </td>
-                            <td colspan="4">
-                              <div ng-repeat="series in study.Series">
-                                {{series}}
+                            <td colspan="6">
+                              <div class="panel panel-primary">
+                                <div class="panel-heading"> List of Series </div>
+                                <div class="panel-body"> 
+                                  <div ng-repeat="series in study.Series">
+                                    <a class="btn btn-info btn btn-xs" style="width:300px;" ui-sref="series.view({ seriesId: series })">{{series}}</a>
+                                  </div>
+                                </div>
                               </div>
                             </td>
                           </tr>
                         </tbody>
-                      
                     </table>
-
                 </div>
             </div>
         </div>

@@ -8,9 +8,6 @@ var path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   passport = require('passport');
 
-var speakeasy = require('speakeasy');
-//var QRCode = require('qrcode');
-
 // URLs for which user can't be redirected on signin
 var noReturnUrls = [
   '/authentication/signin',
@@ -106,26 +103,6 @@ exports.signup = function(req, res) {
  * Signin after passport authentication
  */
 exports.signin = function(req, res, next) {
-  console.log('--signin--');
-
-
-
-var secret = speakeasy.generateSecret({length: 20});
-console.log(secret.base32); // secret of length 20
-
-//QRCode.toDataURL(secret.otpauth_url, function(err, data_url) {
-//  console.log(data_url); // get QR code data URL
-//});
-
-// Get the token at the current time
-// Here, we specify base32 encoding
-
-var token = speakeasy.totp({
-  secret: secret.base32,
-  encoding: 'base32'
-});
-
-console.log(token);
 
   passport.authenticate('local', function(err, user, info) {
     if (err || !user) {
